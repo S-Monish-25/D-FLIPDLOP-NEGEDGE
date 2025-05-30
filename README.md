@@ -27,47 +27,37 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
 **Procedure**
-1.Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
 
-2.Declare Inputs and Outputs: Declare input and output ports for the module.
-
-3.Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
-
-4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
-
-5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
-
-6.Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
-
-7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
-
+/* write all the steps invloved */
+1.Open quartus II and create New project wizard. 2. Write the program in Verilog HDL
+file and run the program. 3. Download the RTL viewer 4. Now open university program
+VWF and download waveform after the execution.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: MONISH S RegisterNumber: 212224040199
-*/
-
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
 ```
-module de8(D,Clock,reset,Q);
-input D,reset,Clock;
-output reg Q;
-always @ (negedge Clock)
-if(!reset)
-Q <= 0;
-else
-Q <= D;
+module exp_8(D,clk,Q,Qbar); 
+input D,clk; 
+output reg Q; 
+output reg Qbar; 
+initial Q=0;
+initial Qbar=1; 
+always @(negedge clk) 
+begin 
+Q=D; 
+Qbar=~D; 
+end 
 endmodule
 ```
-
 **RTL LOGIC FOR FLIPFLOPS**
-
-![image](https://github.com/user-attachments/assets/c86078fb-7acc-4fe3-ac8b-af36ac8a4ac5)
-
-
+![Screenshot 2025-04-23 154323](https://github.com/user-attachments/assets/eed5112d-19bf-40df-9df7-0069bf68822a)
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot 2025-04-23 154541](https://github.com/user-attachments/assets/e2f9b0b6-a953-4407-8153-02f003d1a493)
 
-![image](https://github.com/user-attachments/assets/d5f46f30-7667-471d-9751-74d7dbbeaf83)
+
+
 
 
 **RESULTS**
-Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables.
+Thus the D flip flop is executed in Quartus and output is verified
